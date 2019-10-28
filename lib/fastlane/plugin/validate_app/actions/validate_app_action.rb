@@ -8,7 +8,7 @@ module Fastlane
         require 'plist'
 
         xcode_contents_path = `dirname "$(xcode-select --print-path)"`.strip
-        altool = "#{xcode_contents_path}/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool".shellescape
+        altool = "xcrun altool".shellescape
 
         ENV["VALIDATE_APP_PASSWORD"] = ENV["ALTOOL_2FA_PASSWORD"] || ENV["FASTLANE_PASSWORD"] || ENV["DELIVER_PASSWORD"] || self.fetch_password_from_keychain
 
